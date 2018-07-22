@@ -1,0 +1,32 @@
+<project>
+
+    <target name="run" depends="jar">
+        <java jar="build/jar/HelloWorld.jar" fork="true"/>
+    </target>
+	
+    <target name="compile" depends="clean">
+        <mkdir dir="classes"/>
+        <javac srcdir="src" destdir="classes"/>
+    </target>
+	
+    <target name="clean">
+        <delete dir="build"/>
+		<delete dir="classes"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/HelloWorld.jar" basedir="classes">
+            <manifest>
+                <attribute name="Main-Class" value="abc.HelloWorld"/>
+            </manifest>
+        </jar>
+    </target>
+	
+	<!--<target name="deploy">
+        <copy todir="E:\ProgramFiles\apache-tomcat-7.0.52\webapps" overwrite="false">
+			<fileset dir="build\jar"/>
+		</copy>
+    </target>-->
+
+</project>
