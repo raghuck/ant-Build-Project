@@ -55,7 +55,7 @@ pipeline {
 
 
     }
-    catch (err) {
+    /*catch (err) {
 
         currentBuild.result = "FAILURE"
 
@@ -66,6 +66,6 @@ pipeline {
             to: 'zzzz@yyyyy.com'
 
         throw err
-    }
+    }*/
 
 }
