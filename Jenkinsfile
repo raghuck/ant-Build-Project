@@ -1,6 +1,7 @@
 #!groovy
 
-node('node') {
+pipeline {
+    agent any
 
 
     currentBuild.result = "SUCCESS"
