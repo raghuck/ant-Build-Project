@@ -3,12 +3,12 @@
 pipeline {
     agent any
 
-    try {
+    /*try {
 
        stage('Checkout'){
 
           checkout scm
-       }
+       }*/
 
        stage('Test'){
 
