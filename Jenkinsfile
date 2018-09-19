@@ -12,7 +12,7 @@ pipeline {
     def downloadSpec = """{
      "files": [
       {
-          "pattern": "classes/abc/*",
+          "pattern": "generic-local/*",
           "target": "/home/ec2-user/.jenkins/workspace/testpipeline-1/downloads/"
         }
      ]
