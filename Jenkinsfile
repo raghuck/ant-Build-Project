@@ -13,7 +13,7 @@ pipeline {
      "files": [
       {
           "pattern": "classes/abc/*",
-          "target": "downloads"
+          "target": "/home/ec2-user/.jenkins/workspace/testpipeline-1/downloads/downloads"
         }
      ]
     }"""
