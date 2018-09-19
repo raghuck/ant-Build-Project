@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                 def uploadSpec = """{
+                 /*def uploadSpec = """{
                   "files": [
                     {
                       "pattern": "classes/abc/*",
@@ -21,7 +21,7 @@ pipeline {
                     }
                  ]
                 }"""
-                server.upload(uploadSpec)
+                server.upload(uploadSpec)*/
             }
         }
         stage('Deploy') {
@@ -35,3 +35,13 @@ pipeline {
         }
     }
 }
+
+
+def downloadSpec = """{
+ "files": [
+  {
+      "pattern": "classes/abc/*",
+      "target": "generic-local/"
+    }
+ ]
+}"""
