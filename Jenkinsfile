@@ -1,4 +1,4 @@
-def server = Artifactory.newServer('artifactory-url', 'username', 'password')
+def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
 
 pipeline {
     agent any
@@ -17,7 +17,7 @@ pipeline {
                   "files": [
                     {
                       "pattern": "classes/abc/*",
-                      "target": "classes/abc/"
+                      "target": "generic-local/"
                     }
                  ]
                 }"""
