@@ -24,7 +24,8 @@ pipeline {
                         {
                         def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
                         server.bypassProxy = true
-                        def buildInfo = server.upload spec: uploadSpec
+                        //def buildInfo = server.upload spec: uploadSpec
+                        server.upload(uploadSpec)
                         }
                  /*def uploadSpec = """{
                   "files": [
