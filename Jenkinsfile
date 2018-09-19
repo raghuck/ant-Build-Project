@@ -1,8 +1,17 @@
-def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
+
 
 pipeline {
     agent any
-
+    environment {
+    def downloadSpec = """{
+     "files": [
+      {
+          "pattern": "classes/abc/*",
+          "target": "generic-local/"
+        }
+     ]
+    }"""
+    }
     stages {
         stage('Build') {
             steps {
@@ -13,6 +22,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
+                server.bypassProxy = true
+                def buildInfo = server.upload spec: uploadSpec
                  /*def uploadSpec = """{
                   "files": [
                     {
@@ -35,14 +47,3 @@ pipeline {
         }
     }
 }
-
-
-def downloadSpec = """{
- "files": [
-  {
-      "pattern": "classes/abc/*",
-      "target": "generic-local/"
-    }
- ]
-}"""
-server.upload(uploadSpec)
