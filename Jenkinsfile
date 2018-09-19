@@ -19,7 +19,7 @@ pipeline {
                 mail body: 'project build successful',
                 from: 'krk835900@gmail.com',
                 subject: 'project build successful',
-                to: 'krk835900@gmail.com'*/
+                to: 'krk835900@gmail.com'
             }
         }
     }
