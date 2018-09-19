@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-    def downloadSpec = """{
+    def uploadSpec = """{
      "files": [
       {
           "pattern": "classes/abc/*",
