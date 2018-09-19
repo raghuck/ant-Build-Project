@@ -41,15 +41,6 @@ pipeline {
                         server.download(downloadSpec)
                         echo 'Downloaded the file from Jfrog Artifactory successfully'
                         }
-                 /*def uploadSpec = """{
-                  "files": [
-                    {
-                      "pattern": "classes/abc/*",
-                      "target": "generic-local/"
-                    }
-                 ]
-                }"""
-                server.upload(uploadSpec)*/
             }
         }
         stage('Deploy') {
