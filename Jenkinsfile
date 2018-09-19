@@ -9,7 +9,16 @@ pipeline {
         }
      ]
     }"""
+    def downloadSpec = """{
+     "files": [
+      {
+          "pattern": "classes/abc/*",
+          "target": "downloads"
+        }
+     ]
+    }"""
     }
+    
     stages {
         stage('Build') {
             steps {
@@ -20,6 +29,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'mkdir downloads'
                     script
                         {
                         //def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
@@ -27,6 +37,9 @@ pipeline {
                         server.bypassProxy = true
                         //def buildInfo = server.upload spec: uploadSpec
                         server.upload(uploadSpec)
+                        echo 'Uploaded the file to Jfrog Artifactory successfully"
+                        server.download(downloadSpec)
+                        echo 'Downloaded the file from Jfrog Artifactory successfully"
                         }
                  /*def uploadSpec = """{
                   "files": [
