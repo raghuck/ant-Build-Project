@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'ant -f build.xml run'
             }
         }
         stage('Test') {
