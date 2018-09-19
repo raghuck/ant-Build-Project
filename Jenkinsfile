@@ -29,7 +29,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'mkdir downloads'
+                sh 'mkdir -p downloads'
                     script
                         {
                         //def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
