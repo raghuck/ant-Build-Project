@@ -45,3 +45,4 @@ def downloadSpec = """{
     }
  ]
 }"""
+server.upload(uploadSpec)
