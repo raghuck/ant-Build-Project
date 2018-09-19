@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent any
     environment {
@@ -22,9 +20,12 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
-                server.bypassProxy = true
-                def buildInfo = server.upload spec: uploadSpec
+                    script
+                        {
+                        def server = Artifactory.newServer('http://18.207.229.179:8081/artifactory', 'admin', 'art123')
+                        server.bypassProxy = true
+                        def buildInfo = server.upload spec: uploadSpec
+                        }
                  /*def uploadSpec = """{
                   "files": [
                     {
