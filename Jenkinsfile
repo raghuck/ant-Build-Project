@@ -1,3 +1,5 @@
+def server = Artifactory.newServer('artifactory-url', 'username', 'password')
+
 pipeline {
     agent any
 
@@ -11,6 +13,15 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                 def uploadSpec = """{
+                  "files": [
+                    {
+                      "pattern": "classes/abc/*",
+                      "target": "classes/abc/"
+                    }
+                 ]
+                }"""
+                server.upload(uploadSpec)
             }
         }
         stage('Deploy') {
