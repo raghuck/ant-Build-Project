@@ -37,9 +37,9 @@ pipeline {
                         server.bypassProxy = true
                         //def buildInfo = server.upload spec: uploadSpec
                         server.upload(uploadSpec)
-                        echo 'Uploaded the file to Jfrog Artifactory successfully"
+                        echo 'Uploaded the file to Jfrog Artifactory successfully'
                         server.download(downloadSpec)
-                        echo 'Downloaded the file from Jfrog Artifactory successfully"
+                        echo 'Downloaded the file from Jfrog Artifactory successfully'
                         }
                  /*def uploadSpec = """{
                   "files": [
